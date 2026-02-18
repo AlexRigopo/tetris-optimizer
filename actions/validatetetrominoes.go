@@ -2,9 +2,9 @@ package actions
 
 import "fmt"
 
-func validateAndToRunes(lines []string, blockNum int) ([]rune, error) {
+func validateTetrominoes(lines []string, blockNum int) ([]rune, error) {
 	if len(lines) != 4 {
-		return nil, fmt.Errorf("tetromino %d: expected 4 lines, got %d", blockNum, len(lines))
+		return nil, fmt.Errorf("Tetromino %d: expected 4 lines, got %d", blockNum, len(lines))
 	}
 
 	hashCount := 0
@@ -12,12 +12,12 @@ func validateAndToRunes(lines []string, blockNum int) ([]rune, error) {
 
 	for i, line := range lines {
 		if len(line) != 4 {
-			return nil, fmt.Errorf("tetromino %d: line %d must be 4 chars, got %d", blockNum, i+1, len(line))
+			return nil, fmt.Errorf("Tetromino %d: line %d must be 4 chars, got %d", blockNum, i+1, len(line))
 		}
 
 		for _, ch := range line {
 			if ch != '#' && ch != '.' {
-				return nil, fmt.Errorf("tetromino %d: invalid character %q", blockNum, ch)
+				return nil, fmt.Errorf("Tetromino %d: invalid character %q", blockNum, ch)
 			}
 			if ch == '#' {
 				hashCount++
@@ -28,7 +28,7 @@ func validateAndToRunes(lines []string, blockNum int) ([]rune, error) {
 	}
 
 	if hashCount != 4 {
-		return nil, fmt.Errorf("tetromino %d: expected exactly 4 '#', got %d", blockNum, hashCount)
+		return nil, fmt.Errorf("Tetromino %d: expected exactly 4 '#', got %d", blockNum, hashCount)
 	}
 
 	return out, nil

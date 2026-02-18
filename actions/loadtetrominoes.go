@@ -28,7 +28,7 @@ func LoadTetrominoes(filename string) ([][]rune, error) {
 		}
 		blockNum++
 
-		r, err := validateAndToRunes(block, blockNum)
+		r, err := validateTetrominoes(block, blockNum)
 		if err != nil {
 			return err
 		}

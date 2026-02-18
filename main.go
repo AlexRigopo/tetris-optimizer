@@ -27,4 +27,11 @@ func main() {
 		fmt.Fprintln(os.Stderr, "Error reading file:", err)
 		os.Exit(1)
 	}
+
+	lot = actions.LabelTetrominoes(lot)
+
+	solution := actions.SolveSmallestSquare(lot)
+	for _, row := range solution {
+		fmt.Println(row)
+	}
 }
