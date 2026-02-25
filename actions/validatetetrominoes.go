@@ -2,7 +2,7 @@ package actions
 
 import "fmt"
 
-func validateTetrominoes(lines []string, blockNum int) ([]rune, error) {
+func ValidateTetrominoes(lines []string, blockNum int) ([]rune, error) {
 	if len(lines) != 4 {
 		return nil, fmt.Errorf("Tetromino %d: expected 4 lines, got %d", blockNum, len(lines))
 	}
