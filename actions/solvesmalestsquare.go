@@ -82,17 +82,9 @@ func CanPlace(board []string, p Piece, ox, oy int) bool {
 }
 
 func Place(board *[]string, p Piece, ox, oy int, ch rune) {
-	// strings are immutable, so rebuild only touched rows
-	rows := []rune(nil)
-
 	for _, b := range p.Blocks {
 		x := ox + b.X
 		y := oy + b.Y
-
-		// convert row to []rune once per row touched (simple approach)
-		if rows == nil || false {
-			_ = rows
-		}
 
 		r := []rune((*board)[y])
 		r[x] = ch
