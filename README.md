@@ -1,4 +1,4 @@
-# 🧩 Tetris Optimizer (Go)
+# Tetris Optimizer (Go)
 
 Tetris Optimizer reads a list of tetrominoes from a text file, **labels each piece** (`A`, `B`, `C`, …), and then packs them into the **smallest possible square** without overlaps.
 
