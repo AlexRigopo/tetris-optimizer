@@ -10,6 +10,7 @@ type Piece struct {
 	W, H   int      // bounding box width/height (optional but speeds up)
 }
 
+// SolveSmallestSquare finds the smallest board that fits all labeled pieces.
 func SolveSmallestSquare(labeled [][]rune) []string {
 	// Convert labeled rune grids into compact piece structures for fast placement checks.
 	pieces := make([]Piece, 0, len(labeled))
@@ -29,6 +30,7 @@ func SolveSmallestSquare(labeled [][]rune) []string {
 	}
 }
 
+// NewBoard creates an n x n board filled with '.'.
 func NewBoard(n int) []string {
 	// Build an n x n board initialized with '.'.
 	b := make([][]rune, n)
@@ -47,6 +49,7 @@ func NewBoard(n int) []string {
 	return out
 }
 
+// Backtrack tries to place all pieces recursively until a full solution is found.
 func Backtrack(board []string, pieces []Piece, idx int) bool {
 	// Base case: every piece has been placed successfully.
 	if idx == len(pieces) {
@@ -74,6 +77,7 @@ func Backtrack(board []string, pieces []Piece, idx int) bool {
 	return false
 }
 
+// CanPlace checks whether a piece can be placed at the given board offset.
 func CanPlace(board []string, p Piece, ox, oy int) bool {
 	// Check every occupied cell of piece p against board bounds and collisions.
 	n := len(board)
@@ -90,6 +94,7 @@ func CanPlace(board []string, p Piece, ox, oy int) bool {
 	return true
 }
 
+// Place writes or removes a piece on the board using the provided rune.
 func Place(board *[]string, p Piece, ox, oy int, ch rune) {
 	// Write piece cells (or '.') into the board at the given offset.
 	for _, b := range p.Blocks {
@@ -102,6 +107,7 @@ func Place(board *[]string, p Piece, ox, oy int, ch rune) {
 	}
 }
 
+// ParsePiece converts one labeled tetromino into normalized piece coordinates.
 func ParsePiece(lot []rune) Piece {
 	// lot is 4 lines of 4 + '\n' (20 runes), and contains 'A'.. or '.' and '\n'
 	var id rune

@@ -2,6 +2,7 @@ package actions
 
 import "fmt"
 
+// ValidateTetrominoes checks block shape rules and returns the normalized rune form.
 func ValidateTetrominoes(lines []string, blockNum int) ([]rune, error) {
 	// Each tetromino must be exactly 4 lines tall.
 	if len(lines) != 4 {
@@ -46,6 +47,7 @@ func ValidateTetrominoes(lines []string, blockNum int) ([]rune, error) {
 	return out, nil
 }
 
+// isConnected verifies that all '#' cells are part of one connected shape.
 func isConnected(lines []string) bool {
 	type point struct{ x, y int }
 

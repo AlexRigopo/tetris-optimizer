@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// LoadTetrominoes reads tetromino blocks from a file and validates each block.
 func LoadTetrominoes(filename string) ([][]rune, error) {
 	// Open input file for line-by-line parsing.
 	f, err := os.Open(filename)

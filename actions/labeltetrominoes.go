@@ -2,6 +2,7 @@ package actions
 
 import "fmt"
 
+// LabelTetrominoes replaces each tetromino's '#' cells with sequential letters.
 func LabelTetrominoes(lot [][]rune) ([][]rune, error) {
 	// Assign one letter per tetromino in input order.
 	for i := range lot {
